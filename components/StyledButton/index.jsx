@@ -3,8 +3,7 @@ import React from "react";
 import styles from "./styles";
 
 export default function StyledButton(props) {
-  const type = props.type;
-  const text = props.text;
+  const { type, text, onPress } = props;
   const backgroundColor = type === "primary" ? "#171A20CC" : "#FFFFFFA6";
   const textColor = type === "primary" ? "#FFFFFFA6" : "#171A20CC";
 
@@ -13,7 +12,7 @@ export default function StyledButton(props) {
       <Pressable
         style={[styles.button, { backgroundColor: backgroundColor }]}
         onPress={() => {
-          console.warn("Hi");
+          onPress();
         }}
       >
         <Text style={[styles.text, { color: textColor }]}>{text}</Text>
